@@ -13,7 +13,7 @@ do{
   if(totalScore < 21){ //ho rimesso questa condizione perché se il punteggio supera 21 non voglio che venga richiesto se si vuole continuare
     do{ //Faccio un ciclo con una funzione al suo interno per controllare la validità della risposta data
       userChoice = prompt("Vuoi continuare? Scrivi si oppure no");
-      var answer = verifyAnswer(userChoice);
+      var answer = verifyAnswer(userChoice); //La funzione verifica se la risposta sia si o no. Finché non è una di quelle richiede inserimento
       if(!answer){
         alert("Hai inserito una risposta errata.")
       }
