@@ -9,13 +9,17 @@ do{
   alert("Hai pescato un: " + userCard);
   totalScore = totalScore + userCard;
   alert("Punteggio totale: " +totalScore);
+  var userChoice = ""; //variabile creata per memorizzare la scelta dell'utente se si o no
   if(totalScore < 21){ //ho rimesso questa condizione perché se il punteggio supera 21 non voglio che venga richiesto se si vuole continuare
-    var userChoice = prompt("Vuoi continuare? Scrivi si oppure no");
-    if(userChoice == "no"){
-      anotherRound = false;
-    }
+    do{ //Faccio un ciclo con una funzione al suo interno per controllare la validità della risposta data
+      userChoice = prompt("Vuoi continuare? Scrivi si oppure no");
+      var answer = verifyAnswer(userChoice);
+      if(!answer){
+        alert("Hai inserito una risposta errata.")
+      }
+    } while(!answer)
   }
-}while((anotherRound) && (totalScore <= 21))
+}while((userChoice != "no") && (totalScore <= 21))
 //Verifico se il giocatore ha vinto
 if(totalScore > 21){
   document.write("Mi dispiace ma hai perso! Hai fatto: " +totalScore);
@@ -28,4 +32,13 @@ else if(computerNumber < totalScore){
 }
 else{
   document.write("Tu e il computer avete pareggiato con un punteggio di: " + totalScore);
+}
+
+function verifyAnswer(answer){
+  if((answer == "si") || (answer == "no")){
+    return true;
+  }
+  else{
+    return false;
+  }
 }
