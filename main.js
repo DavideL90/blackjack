@@ -8,7 +8,7 @@ do{
   var userCard = Math.floor((Math.random() * 10) + 1);
   alert("Hai pescato un: " + userCard);
   totalScore = totalScore + userCard;
-  if(totalScore < 21){
+  if(totalScore < 21){ //ho rimesso questa condizione perché se il punteggio supera 21 non voglio che venga richiesto se si vuole continuare
     var userChoice = prompt("Vuoi continuare? Scrivi si oppure no");
     if(userChoice == "no"){
       anotherRound = false;
